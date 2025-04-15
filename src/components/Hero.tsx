@@ -3,10 +3,14 @@ import heroleft from "../../public/img/heroleft.png";
 
 export default function Hero() {
   return (
-    <div className="flex relative justify-between items-center h-[660px] mt-10 mx-auto p-5 gap-35 overflow-hidden bg-[#fbfbfb]">
+    <div className="flex relative justify-between items-center h-[660px] mt-15 mx-auto p-5 gap-35  bg-[#fbfbfb]">
       <div className=" justify-center items-center flex">
-        <div className="absolute flex justify-center items-center h-[559px] w-[796px]  ">
-          <img src={heroleft.src} alt="/" className="h-[559px] w-[796px]  " />
+        <div className="absolute flex justify-center items-center h-[600px] w-[900px]  ">
+          <img
+            src={heroleft.src}
+            alt="/"
+            className="h-[600px] w-[900px] mr-5 "
+          />
         </div>
         <div className="relative flex  gap-[20px] ml-25 flex-col ">
           <div className="h-[140px] w-[553px] ">

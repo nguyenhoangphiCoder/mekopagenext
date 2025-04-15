@@ -1,18 +1,16 @@
 "use client";
 import { useState, useRef } from "react";
-import pr1 from "../../public/img/pr1.png";
-import pr4 from "../../public/img/pr4.png";
-import pr5 from "../../public/img/pr5.png";
 import { usePosts } from "@/app/helpers/hooks";
 
 export default function Product() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const itemsPerClick = 3; // Cuộn 3 sản phẩm mỗi lần click
-  const cardWidth = 410; // Chiều rộng mỗi card (bao gồm margin)
-  // Số trang
+  const itemsPerClick = 3;
+  const cardWidth = 410;
+
   const post = usePosts({ type: "1" });
   const totalPages = Math.ceil(post.posts.length / itemsPerClick);
+
   const scrollToIndex = (index: number): void => {
     if (scrollRef.current) {
       setCurrentIndex(index);
@@ -24,64 +22,66 @@ export default function Product() {
   };
 
   return (
-    <div className="flex justify-center items-center h-[757px] mt-[-300px] w-full flex-col mx-auto">
-      <div className="flex h-[432px] w-[1280px] flex-col justify-center gap-[15px] items-center">
-        <div className="flex h-[397px] w-[1280px] flex-col items-center">
-          <div className="flex justify-center items-center flex-col gap-[20px] h-[106px] w-[570px]">
-            <h1 className="text-[35px] font-fira-sans text-[#00428c]">
-              Sản Phẩm
-            </h1>
-            <p className="text-[16px] text-[#464646] w-xl text-center font-barlow">
-              Với triết lý kinh doanh lấy chất lượng sản phẩm làm trọng tâm,
-              chúng tôi tự tin cung cấp ra thị trường hàng triệu sản phẩm mỗi
-              năm.
-            </p>
-          </div>
-          {/* Danh sách sản phẩm cuộn ngang */}
-          <div
-            ref={scrollRef}
-            className=" py-8 flex gap-5 w-[1200px] h-[276px] mb-5  overflow-x-auto scroll-smooth"
-            style={{
-              scrollBehavior: "smooth",
-              scrollbarWidth: "none",
-              overflow: "hidden",
-            }}
-          >
-            {post.posts?.map((post) => (
-              <div
-                key={post.id}
-                className="bg-white p-3 flex justify-center items-center rounded-md shadow w-[400px] h-[230px] flex-shrink-0"
-              >
-                <div className="flex justify-center items-center flex-row">
-                  <a
-                    href={"productdescription"}
-                    className="h-[200px] w-[400px] flex flex-row justify-center gap-5 items-center"
-                  >
-                    <p className="mt-30 font-bold text-[#ec500d]">
-                      xem ngay <span> {" > "} </span>
-                    </p>
-
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="h-[150x] w-[200px]  hover:scale-105 hover:opacity-90"
-                    />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+    <div className="flex justify-center items-center w-full flex-col py-16 bg-[#f8f9fc]">
+      <div className="max-w-[1280px] w-full px-4 flex flex-col items-center">
+        {/* Heading */}
+        <div className="text-center max-w-xl mb-10">
+          <h1 className="text-4xl font-fira-sans text-[#00428c]  mb-4">
+            Sản Phẩm
+          </h1>
+          <p className="text-base text-[#464646] font-barlow leading-relaxed">
+            Với triết lý kinh doanh lấy chất lượng sản phẩm làm trọng tâm, chúng
+            tôi tự tin cung cấp ra thị trường hàng triệu sản phẩm mỗi năm.
+          </p>
         </div>
 
-        {/* Chấm chuyển đổi (Nhấn vào để cuộn 3 sản phẩm + thay đổi màu) */}
-        <div className="flex justify-center items-center space-x-2">
+        {/* Product Carousel */}
+        <div
+          ref={scrollRef}
+          className="flex gap-5 w-full h-[260px] overflow-hidden scroll-smooth relative"
+        >
+          {post.posts?.map((post) => (
+            <div
+              key={post.id}
+              className="bg-white p-4 flex items-center rounded-2xl shadow-md w-[400px] h-[230px] flex-shrink-0 hover:shadow-xl transition-shadow duration-300"
+            >
+              <a
+                href="productdescription"
+                className="flex gap-4 w-full items-center"
+              >
+                <div className="flex flex-col justify-between w-[200px] h-[150px]">
+                  <h2 className="text-xl font-semibold text-[#00428c]">
+                    {post.title}
+                  </h2>
+                  <p className="line-clamp-2 text-sm text-[#333]">
+                    {post.description}
+                  </p>
+                  <span className="text-sm font-bold text-[#ec500d] mt-2">
+                    xem ngay <span>&gt;</span>
+                  </span>
+                </div>
+
+                <div className="w-[180px] h-[150px] relative">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="h-full w-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center items-center space-x-2 mt-6">
           {[...Array(totalPages)].map((_, index) => (
             <div
               key={index}
-              className={`w-5 h-1 rounded-full cursor-pointer transition-all ${
-                currentIndex === index ? "bg-orange-500" : "bg-gray-500"
-              }`}
               onClick={() => scrollToIndex(index)}
+              className={`w-6 h-1 rounded-full cursor-pointer mb-25 transition-all duration-300 ${
+                currentIndex === index ? "bg-orange-500" : "bg-gray-300"
+              }`}
             ></div>
           ))}
         </div>

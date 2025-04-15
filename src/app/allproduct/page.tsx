@@ -12,7 +12,7 @@ export default function AllProduct() {
     <div>
       <Nav />
       <div className="px-4 py-10 bg-gray-50 min-h-screen">
-        <h1 className="text-center text-4xl font-bold mb-8 text-[#ec500d] uppercase">
+        <h1 className="text-center text-4xl font-bold mb-8 text-[#00428C] uppercase">
           Tất cả sản phẩm
         </h1>
 

@@ -11,13 +11,12 @@ export default function Footer() {
   const [dropdown, setDropdown] = useState(false);
   const posts = usePosts({ type: "1" });
   return (
-    <div className="relative flex justify-center items-center h-[443px]  w-full flex-col mx-auto">
+    <div className="relative flex justify-center items-center h-[443px] max-w-full w-full flex-col mx-auto">
       <Image
         src="/img/footer.png"
         alt="Footer"
-        className="h-[443px] w-full absolute top-0 left-0"
+        className="h-[443px] w-screen absolute top-0 left-0"
         layout="fill"
-        objectFit="cover"
       />
       <div className="relative h-[443px] w-[1406px] max-w-[1415px] flex flex-row items-center justify-center gap-10">
         <ul className="relative h-[279px] w-[1406px] ml-15 flex flex-col gap-1  ">

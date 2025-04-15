@@ -39,11 +39,6 @@ export default function ContactOne() {
               Yêu cầu tư vấn
             </h2>
             <FormContact />
-            <div className="w-[1180px] h-[341] mt-6 ">
-              <button className="w-[133px] h-[40px] text-white font-barlow rounded-[51px] bg-[#ec500d] mt-5 text-[16px]">
-                Gửi
-              </button>
-            </div>
           </div>
           <InformationCompany settings={settings} />
         </div>

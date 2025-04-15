@@ -4,11 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { usePosts } from "@/app/helpers/hooks";
+import { useRouter } from "next/navigation"; // Import useRouter
 
 export default function Description() {
   const [mainImage, setMainImage] = useState<string>("/img/default.png");
   const [activeDot, setActiveDot] = useState(0);
   const post = usePosts({ type: "1" });
+  const router = useRouter(); // Initialize useRouter
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const posts = post.posts || [];
@@ -155,7 +157,10 @@ export default function Description() {
                   </span>
                 </li>
               </ul>
-              <button className="w-[133px] h-[36px] rounded-[51px] bg-[#ec500d] text-white text-[14px] font-barlow">
+              <button
+                className="w-[133px] h-[36px] rounded-[51px] bg-[#ec500d] text-white text-[14px] font-barlow"
+                onClick={() => router.push("/contact")} // Navigate to contact
+              >
                 Nhận Báo Giá
               </button>
             </div>
