@@ -2,13 +2,17 @@
 import { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Image from "next/image";
-import mekoName from "../../public/img/Rectangle.png";
-import logoMeko from "../../public/img/Logo-MEKO-Trading-2-1 2.png";
-import VNFlag from "../../public/img/co-viet-nam-2.jpg";
+import mekoName from "../../../../public/img/Rectangle.png";
+import logoMeko from "../../../../public/img/Logo-MEKO-Trading-2-1 2.png";
+import VNFlag from "../../../../public/img/co-viet-nam-2.jpg";
 import { MenuApi } from "@/app/services/menu-api";
-import NavbarItems from "./NavbarItems";
+import NavbarItems from "../../../components/NavbarItems";
 import { usePosts } from "@/app/helpers/hooks";
-
+import { Barlow } from "next/font/google";
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
 export default function Nav() {
   const [nav, setNav] = useState(false);
   const post = usePosts();
@@ -36,7 +40,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <div className="flex justify-between items-center h-[77px] w-full max-w-[screen] mx-auto bg-white px-20">
+    <div className="flex justify-between items-center  h-[77px] w-full max-w-[screen] mx-auto bg-white px-20">
       {/* Logo */}
       <div className="flex items-center gap-6">
         <Image src={mekoName} alt="Meko Name" className="h-[40px]" />
@@ -50,7 +54,9 @@ export default function Nav() {
         {/* Cờ VN + Nút Báo Giá (Luôn hiển thị trên Mobile) */}
         <div className="flex items-center gap-2 ">
           <img src={VNFlag.src} alt="VN Flag" className="h-[20px]" />
-          <button className="w-[133px] h-[36px] rounded-[51px] bg-[#ec500d] text-white text-[16px] font-barlow">
+          <button
+            className={`w-[133px] h-[36px] rounded-[51px] bg-[#ec500d] text-white text-[16px] ${barlow.className} font-[600]`}
+          >
             Nhận Báo Giá
           </button>
         </div>

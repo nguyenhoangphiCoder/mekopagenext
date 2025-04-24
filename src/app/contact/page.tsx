@@ -1,12 +1,9 @@
 "use client";
 
 import { useSetting } from "@/app/helpers/hooks";
-import ConsultationRequest from "@/components/ConsultationRequest";
-import Contact from "@/components/Contact";
-import Nav from "@/components/Header";
-import React from "react";
+import Nav from "@/app/home/components/Header";
+import Footer from "@/app/home/components/Footer";
 import FormContact from "./components/FormContact";
-import Footer from "@/components/Footer";
 import InformationCompany from "./components/InformationCompany";
 
 export default function ContactOne() {
@@ -14,37 +11,45 @@ export default function ContactOne() {
     settings,
     loading,
     error,
-  }: { settings: any; loading: boolean; error: { message?: string } | null } =
-    useSetting();
+  }: {
+    settings: any;
+    loading: boolean;
+    error: { message: string } | null | undefined;
+  } = useSetting();
 
-  if (loading) return <p>Đang tải...</p>;
+  if (loading) return <p className="text-center mt-10"></p>;
 
   return (
-    <div className=" ">
-      <Nav />
-      <div className="flex flex-col items-center justify-center w-full min-h-screen p-6 bg-white">
-        <div className=" text-center">
-          <h1 className="text-2xl font-semibold uppercase text-[#00428c]">
+    <div>
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Nav />
+      </div>
+
+      <div className="bg-white py-12 px-4 min-h-screen mt-20">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold uppercase text-[#00428c] mb-2">
             Liên hệ với chúng tôi
           </h1>
-          <h2>
-            <div className="text-2xl font-semibold uppercase text-[#00428c]">
-              {settings?.company_name || "Tên công ty"}
-            </div>
+          <h2 className="text-2xl md:text-3xl font-semibold uppercase text-[#00428c]">
+            {settings?.company_name || "Tên công ty"}
           </h2>
         </div>
-        <div className="flex flex-row mt-20 ">
-          <div className="flex flex-col h-[411px] w-[600px] ">
-            <h2 className="font-fira-sans text-[35px] text-[#00428c]">
+
+        <div className="flex flex-col lg:flex-row justify-center items-start gap-10 max-w-6xl mx-auto">
+          <div className="flex-1">
+            <h2 className="text-[28px] font-semibold text-[#00428c] mb-6">
               Yêu cầu tư vấn
             </h2>
             <FormContact />
           </div>
-          <InformationCompany settings={settings} />
+
+          <div className="flex-1">
+            <InformationCompany settings={settings} />
+          </div>
         </div>
-        <div className="m-10"></div>
-        <Footer />
       </div>
+
+      <Footer />
     </div>
   );
 }

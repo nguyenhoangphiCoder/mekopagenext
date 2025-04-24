@@ -20,54 +20,44 @@ export default function Footer() {
       />
       <div className="relative h-[443px] w-[1406px] max-w-[1415px] flex flex-row items-center justify-center gap-10">
         <ul className="relative h-[279px] w-[1406px] ml-15 flex flex-col gap-1  ">
-          <li className="text-[16px] font-fira-sans text-[#ec500d]">
+          <li className="text-[16px] font-fira-sans text-[#ec500d] font-[600]">
             Nhà máy sản xuất:
           </li>
-          <li className=" text-[16px] font-fira-sans uppercase">
+          <li className=" text-[16px] font-fira-sans font-[600] uppercase">
             XÍ NGHIỆP CBTP MEKO
           </li>
           <li>
             <p className="font-barlow text-[16px]">
-              <span className="font-fira-sans">Địa chỉ:</span> Lô 25, KCN Trà
-              Nóc 1, P. Trà Nóc, Q. Bình Thủy, TP. Cần Thơ
+              <span className="font-fira-sans font-[600]">Địa chỉ:</span> Lô 25,
+              KCN Trà Nóc 1, P. Trà Nóc, Q. Bình Thủy, TP. Cần Thơ
             </p>
           </li>
-          <li className="text-[16px] font-fira-sans text-[#ec500d]">
+          <li className="text-[16px] font-[600] font-fira-sans text-[#ec500d]">
             Đơn vị phân phối:
           </li>
-          <li className=" text-[16px] font-fira-sans uppercase">
+          <li className=" text-[16px] font-fira-sans font-[600] uppercase">
             CÔNG TY TNHH THƯƠNG MẠI MEKO
           </li>
           <li>
             <p className=" text-[16px] font-barlow">
-              <span className="font-fira-sans">Địa chỉ:</span> 193 Phan Huy Chú,
-              P. An Khánh, Q. Ninh Kiều, TP. Cần Thơ
+              <span className="font-fira-sans font-[600]">Địa chỉ:</span> 193
+              Phan Huy Chú, P. An Khánh, Q. Ninh Kiều, TP. Cần Thơ
             </p>
           </li>
         </ul>
         <div className="relative h-[279px] w-[1406px] max-w-[1410px] flex flex-col pl-20 ">
-          <h3 className="text-[20px] text-[#464646] font-fira-sans ">
+          <h3 className="text-[20px] text-[#464646] font-fira-sans font-[600]">
             Liên kết
           </h3>
           <div className="h-[2px] w-[28px] bg-[#ec500d] "></div>
-          {/* <ul className="space-y-2 text-lg text-gray-700 gap-3 mt-5">
-            {menuItems.map((item, index) => (
-              <li
-                key={index}
-                className="flex items-center font-fira-sans gap-2 pt-3"
-              >
-                <FaChevronRight className="w-4 h-4 text-gray-500" />
-                {item}
-              </li>
-            ))}
-          </ul> */}
+
           <ul className="space-y-2 text-lg text-gray-700 gap-3 mt-5">
             <li>
               <a
                 href="/"
-                className="flex items-center font-fira-sans gap-2 pt-3"
+                className="flex items-center font-fira-sans gap-2 pt-3 font-[400] "
               >
-                Trang Chủ
+                <span className="text-xl">›</span> Trang Chủ
               </a>
             </li>
 
@@ -78,8 +68,11 @@ export default function Footer() {
               onMouseEnter={() => setDropdown(true)}
               onMouseLeave={() => setDropdown(false)}
             >
-              <Link href={"/allproduct"} className="flex items-center gap-1">
-                Sản Phẩm <span className="ml-1">›</span>
+              <Link
+                href={"/allproduct"}
+                className="flex items-center gap-1 font-[400] "
+              >
+                <span className="text-xl">›</span>Sản Phẩm
               </Link>
 
               {/* Dropdown menu */}
@@ -101,22 +94,25 @@ export default function Footer() {
             </li>
 
             <li>
-              <a className="flex items-center font-fira-sans gap-2 pt-3">
-                Tin Tức
+              <a
+                href="news"
+                className="flex items-center font-fira-sans gap-2 pt-3 font-[400] "
+              >
+                <span className="text-xl">›</span> Tin Tức
               </a>
             </li>
             <li>
               <a
                 href="contact"
-                className="flex items-center font-fira-sans gap-2 pt-3"
+                className="flex items-center font-fira-sans gap-2 pt-3 font-[400] "
               >
-                Liên Hệ
+                <span className="text-xl">›</span> Liên Hệ
               </a>
             </li>
           </ul>
         </div>
         <div className="relative h-[279px] w-[1406px] max-w-[1415px] flex flex-col mr-8 ">
-          <h3 className="text-[20px] text-[#464646] font-fira-sans ">
+          <h3 className="text-[20px] text-[#464646] font-fira-sans font-[600] ">
             Liên Hệ
           </h3>
           <div className="h-[2px] w-[28px] bg-[#ec500d]"></div>
@@ -137,7 +133,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="relative h-[279px] w-[1406px] max-w-[1415px] flex flex-col mr-15 ">
-          <h3 className="text-[20px] text-[#464646] font-fira-sans ">
+          <h3 className="text-[20px] text-[#464646] font-fira-sans font-[600]">
             Fanpage
           </h3>
           <div className="h-[2px] w-[28px] bg-[#ec500d]"></div>
@@ -145,8 +141,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="h-[64px] w-[1450px] bg-[#ffffff] relative rounded-[12px] mb-10 flex flex-row items-center ">
-        <p className="ml-5 text-[14px] text-gray-400 font-semibold ">©2024,</p>
-        <a href="/" className="text-[14px] font-inter ">
+        <p className="ml-5 text-[14px] text-gray-400 font-inter ">©2024,</p>
+        <a href="/" className="text-[14px] font-inter font-[500] ml-1">
           Copyright by Satek.vn
         </a>
       </div>

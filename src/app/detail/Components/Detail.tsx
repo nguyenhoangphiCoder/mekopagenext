@@ -1,60 +1,68 @@
 "use client";
 
 import Image from "next/image";
-
-import Nav from "@/components/Header";
-import Footer from "@/components/Footer";
+import Nav from "@/app/home/components/Header";
+import Footer from "@/app/home/components/Footer";
 import { formatMoney } from "@/app/helpers/utils";
 
 export default function Detail({ post }: any) {
   return (
-    <div className="">
-      <Nav />
-      <div className="product-detail flex flex-row justify-center gap-30 items-center ">
-        <div className="flex justify-center items-center w-[550px] h-[400px] m-15 rounded-2xl border-[#ffff] shadow-xl duration-300">
-          <Image
-            src={post.image || "/img/default.png"}
-            width={350}
-            height={150}
-            alt={post.title}
-            className=" rounded-2xl h-[400px] w-[450px]"
-          />
-        </div>
-        <div className="flex flex-col w-[573px] h-[400px]  gap-[10px] mt-10">
-          <h1 className=" uppercase text-lg font-bold">{post.title}</h1>
-          <ul>
-            <li className="flex gap-2">
-              <p className="text-[16px] font-bold text-[#383838]">Price: </p>
-              <span className="font-barlow text-red-700">
-                {" "}
-                {formatMoney(post.product.price)} vnd
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <p className="text-[16px] font-bold text-[#383838]">Code: </p>
-              <span className="font-barlow "> {post.product.code} </span>
-            </li>
-            <li className="flex gap-2">
-              <p className="text-[16px] font-bold text-[#383838]">Slug: </p>
-              <span className="font-barlow "> {post.slug} </span>
-            </li>
-            <li className="flex gap-2">
-              <p className="text-[16px] font-bold text-[#383838]">Status: </p>
-              <span className="font-barlow "> {post.status} </span>
-            </li>
-            <li className="gap-2">
-              <p className="text-[16px] font-bold text-[#383838]">
-                Description:{" "}
-              </p>
-              <span className="font-barlow "> {post.description} </span>
-            </li>
-          </ul>
+    <div>
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Nav />
+      </div>
+      <div className="py-10 px-4 bg-white min-h-screen">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
+          {/* Image section */}
+          <div className="flex justify-center items-center w-full lg:w-[550px] h-[400px] bg-white rounded-2xl shadow-lg p-4">
+            <Image
+              src={post.image || "/img/default.png"}
+              width={400}
+              height={400}
+              alt={post.title}
+              className="rounded-2xl object-cover w-full h-full"
+            />
+          </div>
 
-          <button className="w-[133px] h-[36px] rounded-[51px] bg-[#ec500d] text-white text-[16px] font-barlow">
-            Nhận Báo Giá
-          </button>
+          {/* Info section */}
+          <div className="flex flex-col gap-4 w-full">
+            <h1 className="text-2xl font-bold uppercase text-[#00428C]">
+              {post.title}
+            </h1>
+            <ul className="space-y-2">
+              <li className="flex gap-2">
+                <p className="text-base font-semibold text-gray-800">Price:</p>
+                <span className="text-red-600 font-medium">
+                  {formatMoney(post.product.price)} VND
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <p className="text-base font-semibold text-gray-800">Code:</p>
+                <span>{post.product.code}</span>
+              </li>
+              <li className="flex gap-2">
+                <p className="text-base font-semibold text-gray-800">Slug:</p>
+                <span>{post.slug}</span>
+              </li>
+              <li className="flex gap-2">
+                <p className="text-base font-semibold text-gray-800">Status:</p>
+                <span>{post.status}</span>
+              </li>
+              <li>
+                <p className="text-base font-semibold text-gray-800 mb-1">
+                  Description:
+                </p>
+                <span className="text-gray-700">{post.description}</span>
+              </li>
+            </ul>
+
+            <button className="mt-6 w-[160px] h-[45px] rounded-full bg-[#ec500d] text-white text-base font-semibold hover:bg-[#d4490a] transition">
+              Nhận báo giá
+            </button>
+          </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );

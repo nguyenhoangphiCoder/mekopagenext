@@ -3,9 +3,8 @@
 import { getMessageError } from "@/app/helpers/utils";
 import { FeedbackApi } from "@/app/services/feedback-api";
 import { useState } from "react";
-
 import { toast } from "react-toastify";
-import { Alert, Button, Spinner } from "reactstrap"; // Replace with the correct library or file path if different
+import { Alert, Button, Spinner } from "reactstrap";
 
 export default function FormContact() {
   const [loading, setLoading] = useState(false);
@@ -19,7 +18,7 @@ export default function FormContact() {
       type: "Liên hệ",
       name: form["lastName"].value + " " + form["firstName"].value,
       phone: form["phone"].value,
-      email: "", // Bạn có thể thêm input email nếu cần
+      email: "",
       address: "",
       content: form["content"].value,
     };
@@ -39,42 +38,48 @@ export default function FormContact() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-5 w-full max-w-xl mx-auto"
+    >
       {error && <Alert color="danger">{error}</Alert>}
 
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Họ"
-        required
-        className="w-[568px] h-[53px] font-fira-sans rounded-[51px] p-5 bg-gray-300"
-        disabled={loading}
-      />
-      <input
-        type="text"
-        name="firstName"
-        placeholder="Tên"
-        required
-        className="w-[568px] h-[53px] font-fira-sans rounded-[51px] p-5 bg-gray-300"
-        disabled={loading}
-      />
+      <div className="flex flex-col sm:flex-row gap-4">
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Họ"
+          required
+          className="flex-1 h-12 rounded-full px-5 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          disabled={loading}
+        />
+        <input
+          type="text"
+          name="firstName"
+          placeholder="Tên"
+          required
+          className="flex-1 h-12 rounded-full px-5 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          disabled={loading}
+        />
+      </div>
+
       <input
         type="tel"
         name="phone"
         placeholder="Số điện thoại"
         required
-        className="w-[568px] h-[53px] font-fira-sans rounded-[51px] p-5 bg-gray-300"
+        className="h-12 rounded-full px-5 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
         disabled={loading}
       />
-      <div className="flex flex-col w-[568px]">
-        <textarea
-          name="content"
-          placeholder="Nội dung"
-          required
-          className="h-[150px] rounded-[20px] font-fira-sans p-5 bg-gray-300 resize-none"
-          disabled={loading}
-        ></textarea>
-      </div>
+
+      <textarea
+        name="content"
+        placeholder="Nội dung"
+        required
+        className="h-36 rounded-2xl px-5 py-3 bg-gray-200 resize-none focus:outline-none focus:ring-2 focus:ring-orange-400"
+        disabled={loading}
+      ></textarea>
+
       <div className="text-center">
         {loading ? (
           <Spinner />
@@ -82,9 +87,9 @@ export default function FormContact() {
           <Button
             type="submit"
             color="primary"
-            className="w-[133px] mr-300 h-[50px] text-white font-barlow rounded-[51px] bg-[#ec500d] mt-5 text-[16px]"
+            className="w-40 h-12 text-white font-semibold rounded-full bg-[#ec500d] hover:bg-[#d64600] transition duration-300"
           >
-            {"Gửi yêu cầu"}
+            Gửi yêu cầu
           </Button>
         )}
       </div>

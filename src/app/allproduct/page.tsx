@@ -2,25 +2,27 @@
 import Link from "next/link";
 import { usePosts } from "../helpers/hooks";
 import Image from "next/image";
-import Nav from "@/components/Header";
-import Footer from "@/components/Footer";
+import Nav from "@/app/home/components/Header";
+import Footer from "@/app/home/components/Footer";
 
 export default function AllProduct() {
   const posts = usePosts({ type: "1" });
 
   return (
     <div>
-      <Nav />
-      <div className="px-4 py-10 bg-gray-50 min-h-screen">
-        <h1 className="text-center text-4xl font-bold mb-8 text-[#00428C] uppercase">
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Nav />
+      </div>
+      <div className="px-4 py-12 bg-gray-100 min-h-screen mt-20">
+        <h1 className="text-center text-4xl font-bold mb-10 text-[#00428C] uppercase tracking-wide">
           Tất cả sản phẩm
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {posts.posts?.map((item: any) => (
             <div
               key={item.id}
-              className="bg-white rounded-2xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 overflow-hidden border border-gray-200"
             >
               <Link
                 href={`/productdetail?slug=${item.id}`}
@@ -32,14 +34,14 @@ export default function AllProduct() {
                     height={300}
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-4">
-                  <h2 className="text-xl font-semibold text-[#333] mb-2">
+                <div className="p-5">
+                  <h2 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#00428C] transition-colors duration-300">
                     {item.title}
                   </h2>
-                  <p className="text-gray-600 text-sm line-clamp-3">
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
                     {item.description}
                   </p>
                 </div>

@@ -1,6 +1,28 @@
 "use client";
 import { useState, useRef } from "react";
 import Image from "next/image";
+import { Barlow, Fira_Sans, Inter, Lora, Roboto } from "next/font/google";
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+const firaSans = Fira_Sans({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["italic", "normal"],
+});
 
 const certificates = [
   {
@@ -83,10 +105,12 @@ export default function Certificate() {
       <div className="flex flex-col w-[1440px] h-[670px] justify-center items-center">
         {" "}
         <div className="flex justify-center items-center flex-col">
-          <h1 className="text-[35px] font-fira-sans text-[#00428c]">
+          <h1
+            className={`text-[35px] ${firaSans.className} font-[600] text-[#00428c]`}
+          >
             Chứng Nhận
           </h1>
-          <p className="text-[16px] text-[#464646] w-xl text-center font-barlow">
+          <p className="text-[16px] text-[#464646] w-xl text-center font-barlow font-[400]">
             Với sản phẩm chất lượng cao, chúng tôi đã giành được nhiều giải
             thưởng tại các hội chợ và triển lãm trong nước và quốc tế.
           </p>
@@ -107,8 +131,12 @@ export default function Certificate() {
               className="h-[325px] w-[270px] gap-1 bg-white items-center justify-center shadow-xs flex flex-col flex-shrink-0"
             >
               <div
-                className={`h-[289px] w-[234px] border flex justify-center flex-col text-center`}
-                style={{ borderColor: cert.borderColor, borderWidth: 2 }}
+                className={`h-[289px] w-[234px]  flex justify-center border-[1px]  flex-col text-center`}
+                style={{
+                  borderColor: `${cert.borderColor}50`,
+                  borderWidth: 0.25,
+                  opacity: 1,
+                }}
               >
                 <div className="h-[171px] w-[210px] flex justify-center items-center">
                   <img
@@ -117,8 +145,12 @@ export default function Certificate() {
                     className="w-[190px] h-[155px]"
                   />
                 </div>
-                <h4 className="text-[24px] font-lora">{cert.title}</h4>
-                <p className="text-[15px] font-barlow">{cert.description}</p>
+                <h4 className="text-[24px] font-lora font-[600]">
+                  {cert.title}
+                </h4>
+                <p className="text-[15px] font-barlow font-[300]">
+                  {cert.description}
+                </p>
               </div>
             </div>
           ))}

@@ -10,7 +10,7 @@ export default function ProductBenefits() {
       />
       <div className="h-[158px] w-[1230px] flex justify-between mt-50 text-center items-center relative">
         <div className="h-[83px] w-[324px] flex flex-col">
-          <span className="font-fira-sans text-[18px] text-[#00428c]">
+          <span className="font-fira-sans text-[18px] text-[#00428c]  font-[600]">
             Bổ dưỡng
           </span>
           <p className="text-[15px] font-barlow text-center text-[#464646]">
@@ -19,7 +19,7 @@ export default function ProductBenefits() {
           </p>
         </div>
         <div className="h-[83px] w-[324px] flex flex-col">
-          <span className="font-fira-sans text-[18px] text-[#00428c]">
+          <span className="font-fira-sans text-[18px] text-[#00428c]  font-[600]">
             Tiện lợi
           </span>
           <p className="text-[15px] font-barlow text-center text-[#464646]">
@@ -27,7 +27,7 @@ export default function ProductBenefits() {
           </p>
         </div>
         <div className="h-[83px] w-[350px] flex flex-col">
-          <span className="font-fira-sans text-[18px] text-[#00428c]">
+          <span className="font-fira-sans text-[18px] text-[#00428c]  font-[600]">
             Hợp khẩu vị
           </span>
           <p className="text-[15px] font-barlow  text-[#464646]">

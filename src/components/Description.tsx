@@ -107,20 +107,6 @@ export default function Description() {
                 />
               ))}
             </motion.div>
-
-            <div className="flex mt-3 gap-2">
-              {Array.from({ length: Math.ceil(posts.length / 4) }).map(
-                (_, index) => (
-                  <span
-                    key={index}
-                    className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
-                      activeDot === index ? "bg-[#ec500d]" : "bg-gray-400"
-                    }`}
-                    onClick={() => scrollToIndex(index)}
-                  ></span>
-                )
-              )}
-            </div>
           </div>
         </motion.div>
 
@@ -128,37 +114,41 @@ export default function Description() {
         <div className="flex flex-col w-[573px] h-[400px] gap-[20px]">
           {currentPost ? (
             <div>
-              <h1 className="text-[40px] font-fira-sans text-[#00428c]">
+              <h1 className="text-[40px] font-fira-sans font-[600] text-[#00428c]">
                 {currentPost.title}
               </h1>
               <p className="text-[16px] font-barlow text-[#383838]">
                 {currentPost.description}
               </p>
               <ul className="w-[573px] h-[120px] space-y-2">
-                <li className="font-fira-sans text-[16px]">
+                <li className="font-fira-sans  font-[500] text-[16px]">
                   {currentPost.slug}
                 </li>
                 <li className="flex">
-                  <p className="font-fira-sans text-[16px]">Giá:</p>
+                  <p className="font-fira-sans text-[16px]  font-[500]">Giá:</p>
                   <span className="pl-1 text-[16px] font-barlow">
                     {currentPost.product?.price || "Liên hệ"}
                   </span>
                 </li>
                 <li className="flex">
-                  <p className="font-fira-sans text-[16px]">Code:</p>
+                  <p className="font-fira-sans text-[16px]  font-[500]">
+                    Code:
+                  </p>
                   <span className="pl-1 text-[16px] font-barlow">
                     {currentPost.product?.code || "Không có"}
                   </span>
                 </li>
                 <li className="flex">
-                  <p className="font-fira-sans text-[16px]">Trạng thái:</p>
+                  <p className="font-fira-sans text-[16px]  font-[500]">
+                    Trạng thái:
+                  </p>
                   <span className="pl-1 text-[16px] font-barlow">
                     {currentPost.status || "Chưa cập nhật"}
                   </span>
                 </li>
               </ul>
               <button
-                className="w-[133px] h-[36px] rounded-[51px] bg-[#ec500d] text-white text-[14px] font-barlow"
+                className="w-[133px] h-[36px] rounded-[51px] bg-[#ec500d] text-white text-[14px] font-barlow  font-[600]"
                 onClick={() => router.push("/contact")} // Navigate to contact
               >
                 Nhận Báo Giá

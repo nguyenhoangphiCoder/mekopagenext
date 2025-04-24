@@ -91,7 +91,7 @@ export default function RelatedProducts() {
     <div className="flex justify-center mt-[-150px] items-center top-[1580px] h-[757px]  w-full mb-[-50px] flex-col mx-auto">
       <div className="flex h-[432px] w-[1280px] flex-col justify-center items-center">
         <div className="flex justify-center items-center flex-col gap-[15px] h-[106px] w-[570px]">
-          <h1 className="text-[35px] font-fira-sans text-[#00428c]">
+          <h1 className="text-[35px] font-fira-sans text-[#00428c] font-[600] ">
             Sản Phẩm Liên Quan
           </h1>
         </div>
@@ -110,7 +110,9 @@ export default function RelatedProducts() {
               key={post.id}
               className="bg-white p-3 rounded-md shadow w-[385px]  h-[245px] flex-shrink-0"
             >
-              <h3 className="text-xl font-fira-sans  ml-5">{post.title}</h3>
+              <h3 className="text-xl font-fira-sans font-[600]   ml-5">
+                {post.title}
+              </h3>
               <div className="h-[59px] w-[296px] flex  ">
                 <p className="text-gray-600 font-roboto text-[16px] p-4">
                   {post.slug}
@@ -118,8 +120,8 @@ export default function RelatedProducts() {
               </div>
               <div className="mt-5 ml-5">
                 <a
-                  href={"productdescription"}
-                  className="text-orange-600 font-fira-sans hover:text-orange-800"
+                  href={`/productdetail?slug=${post.id}`}
+                  className="text-orange-600 font-fira-sans font-[600]  hover:text-orange-800"
                 >
                   Xem ngay <span className="ml-1">›</span>
                 </a>

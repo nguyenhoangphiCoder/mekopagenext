@@ -3,8 +3,8 @@
 import { createLinkCategory } from "@/app/helpers/utils";
 import Link from "next/link";
 import { ProductItem } from "./ProductItem";
-import Nav from "@/components/Header";
-import Footer from "@/components/Footer";
+import Nav from "@/app/home/components/Header";
+import Footer from "@/app/home/components/Footer";
 
 export default function Category({ category, categories, posts, type }: any) {
   return (

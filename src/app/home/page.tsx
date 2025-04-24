@@ -1,13 +1,13 @@
-import About from "@/components/About";
+import About from "@/app/home/components/About";
 import Category from "@/components/Category";
-import Certificate from "@/components/Certificate";
-import Contact from "@/components/Contact";
-import Feature from "@/components/Feature";
-import Footer from "@/components/Footer";
-import Nav from "@/components/Header";
-import Hero from "@/components/Hero";
-import NewsEvent from "@/components/NewsEnvent";
-import Product from "@/components/Product";
+import Certificate from "@/app/home/components/Certificate";
+import Contact from "@/app/home/components/Contact";
+import Feature from "@/app/home/components/Feature";
+import Footer from "@/app/home/components/Footer";
+import Nav from "@/app/home/components/Header";
+import Hero from "@/app/home/components/Hero";
+import NewsEvent from "@/app/home/components/NewsEnvent";
+import Product from "@/app/home/components/Product";
 
 export default function Home() {
   return (
