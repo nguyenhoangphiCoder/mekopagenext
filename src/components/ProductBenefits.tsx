@@ -2,7 +2,7 @@
 import fbg from "../../public/img/fbg.png";
 export default function ProductBenefits() {
   return (
-    <div className="flex justify-center items-center h-[645px]  w-full mt-[-100px] flex-col mx-auto">
+    <div className="flex justify-center items-center h-[645px]  w-full  flex-col mx-auto">
       <img
         src={fbg.src}
         alt="/"

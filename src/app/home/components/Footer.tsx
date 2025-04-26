@@ -4,6 +4,7 @@ import { usePosts } from "@/app/helpers/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { AiOutlineRight } from "react-icons/ai";
 import { FaChevronRight } from "react-icons/fa";
 
 export default function Footer() {
@@ -45,19 +46,19 @@ export default function Footer() {
             </p>
           </li>
         </ul>
-        <div className="relative h-[279px] w-[1406px] max-w-[1410px] flex flex-col pl-20 ">
+        <div className="relative h-[279px] w-[1406px] max-w-[1410px] flex flex-col pl-30 ">
           <h3 className="text-[20px] text-[#464646] font-fira-sans font-[600]">
             Liên kết
           </h3>
           <div className="h-[2px] w-[28px] bg-[#ec500d] "></div>
 
-          <ul className="space-y-2 text-lg text-gray-700 gap-3 mt-5">
+          <ul className="space-y-2 text-lg text-gray-700 gap-3 mt-1">
             <li>
               <a
                 href="/"
                 className="flex items-center font-fira-sans gap-2 pt-3 font-[400] "
               >
-                <span className="text-xl">›</span> Trang Chủ
+                <AiOutlineRight className="text-[15px] " /> Trang Chủ
               </a>
             </li>
 
@@ -70,9 +71,10 @@ export default function Footer() {
             >
               <Link
                 href={"/allproduct"}
-                className="flex items-center gap-1 font-[400] "
+                className="flex items-center gap-2  font-[400] "
               >
-                <span className="text-xl">›</span>Sản Phẩm
+                <AiOutlineRight className="text-[15px]  " />
+                Sản Phẩm
               </Link>
 
               {/* Dropdown menu */}
@@ -98,7 +100,7 @@ export default function Footer() {
                 href="news"
                 className="flex items-center font-fira-sans gap-2 pt-3 font-[400] "
               >
-                <span className="text-xl">›</span> Tin Tức
+                <AiOutlineRight className="text-[15px] " /> Tin Tức
               </a>
             </li>
             <li>
@@ -106,7 +108,8 @@ export default function Footer() {
                 href="contact"
                 className="flex items-center font-fira-sans gap-2 pt-3 font-[400] "
               >
-                <span className="text-xl">›</span> Liên Hệ
+                <AiOutlineRight className="text-[15px] " />
+                Liên Hệ
               </a>
             </li>
           </ul>
@@ -116,12 +119,12 @@ export default function Footer() {
             Liên Hệ
           </h3>
           <div className="h-[2px] w-[28px] bg-[#ec500d]"></div>
-          <ul className="space-y-2 text-lg text-gray-700 gap-5 mt-5">
-            <li className="flex items-center font-fira-sans  gap-2 pt-5">
+          <ul className="space-y-2 text-lg text-gray-700 gap-5 ">
+            <li className="flex items-center font-fira-sans  gap-2 pt-3">
               <Image src="/img/sms.png" alt="Email" width={20} height={20} />
               mekofty.sales@gmail.com
             </li>
-            <li className="flex items-center font-fira-sans gap-2 pt-5">
+            <li className="flex items-center font-fira-sans gap-2 pt-3">
               <Image
                 src="/img/Vector (1).png"
                 alt="Phone"
@@ -132,7 +135,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="relative h-[279px] w-[1406px] max-w-[1415px] flex flex-col mr-15 ">
+        <div className="relative h-[279px] w-[1406px] max-w-[1415px] mb-2  flex flex-col mr-15 ">
           <h3 className="text-[20px] text-[#464646] font-fira-sans font-[600]">
             Fanpage
           </h3>

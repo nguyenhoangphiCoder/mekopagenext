@@ -3,7 +3,7 @@ import { usePosts } from "@/app/helpers/hooks";
 import Link from "next/link";
 import { useState } from "react";
 import { Barlow } from "next/font/google";
-
+import { AiOutlineDown, AiOutlineRight } from "react-icons/ai";
 const barlow = Barlow({ subsets: ["latin"], weight: "600" });
 
 export default function NavbarItems({ menu, type }: any) {
@@ -11,13 +11,16 @@ export default function NavbarItems({ menu, type }: any) {
   const posts = usePosts({ type: "1" });
 
   return (
-    <div className="flex flex-row items-center gap-10">
-      <nav className="hidden md:flex items-center gap-1">
+    <div className="flex flex-row  items-center gap-10 ml-20 mr-[-25px] ">
+      <nav className="hidden md:flex items-center gap-1 ">
         <ul
-          className={`flex gap-8 text-[#00428c] font-barlow relative ${barlow.className} font-[600]`}
+          className={`flex gap-8 text-[#00428c] font-barlow relative ${barlow.className} font-[700]`}
         >
           <li>
-            <a href="/" className="cursor-pointer hover:text-[#ec500d]">
+            <a
+              href="/"
+              className="cursor-pointer hover:text-[#ec500d] font-barlow font-[700]"
+            >
               Trang Chủ
             </a>
           </li>
@@ -31,9 +34,9 @@ export default function NavbarItems({ menu, type }: any) {
             <div>
               <Link
                 href={"/allproduct"}
-                className="flex items-center gap-1 hover:text-[#ec500d]"
+                className="flex items-center gap-1 hover:text-[#ec500d] font-barlow font-[700]"
               >
-                Sản Phẩm <span className="ml-1">›</span>
+                Sản Phẩm <AiOutlineDown className=" mt-1 text-[15px]" />
               </Link>
               {dropdown && (
                 <ul className="absolute top-full left-0 bg-white shadow-lg border  w-[250px] z-10">
@@ -53,12 +56,18 @@ export default function NavbarItems({ menu, type }: any) {
           </li>
 
           <li>
-            <a className="hover:text-[#ec500d] cursor-pointer" href="/news">
+            <a
+              className="hover:text-[#ec500d] cursor-pointer font-barlow font-[700]"
+              href="/news"
+            >
               Tin Tức
             </a>
           </li>
           <li>
-            <a href="contact" className="hover:text-[#ec500d] cursor-pointer">
+            <a
+              href="contact"
+              className="hover:text-[#ec500d] cursor-pointer font-barlow font-[700]"
+            >
               Liên Hệ
             </a>
           </li>

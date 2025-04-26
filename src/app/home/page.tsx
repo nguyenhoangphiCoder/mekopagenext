@@ -11,8 +11,8 @@ import Product from "@/app/home/components/Product";
 
 export default function Home() {
   return (
-    <div>
-      <div className="fixed top-0 left-0 right-0 z-50">
+    <div className="overflow-hidden mx-auto lg:w-full">
+      <div className="fixed top-0 left-0 right-0 z-50 mx-auto">
         <Nav />
       </div>
       <div className="bg-[#fbfbfb] flex flex-col">

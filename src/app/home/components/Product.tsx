@@ -1,7 +1,11 @@
 "use client";
 import { usePosts } from "@/app/helpers/hooks";
 import { Barlow, Fira_Sans, Inter, Lora, Roboto } from "next/font/google";
-
+import Link from "next/link";
+import { FaChevronRight, FaChevronUp } from "react-icons/fa";
+import Image from "next/image";
+import { AiOutlineRight } from "react-icons/ai";
+import ProductCard from "@/components/ProductCard";
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const barlow = Barlow({ subsets: ["latin"], weight: ["400", "500", "600"] });
 const firaSans = Fira_Sans({ subsets: ["latin"], weight: ["400", "600"] });
@@ -34,44 +38,7 @@ export default function Product() {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {posts?.map((post) => (
-            <div
-              key={post.id}
-              className="bg-white p-4 flex items-center rounded-2xl shadow w-full min-h-[276px] hover:shadow-xl transition-shadow duration-300"
-            >
-              <a
-                href={`/productdetail?slug=${post.id}`}
-                className="flex gap-4 w-full items-center relative"
-              >
-                <div className="flex flex-col justify-between w-[60%]">
-                  <h2
-                    className={`text-[20px] ${firaSans.className} font-[600] text-black truncate`}
-                  >
-                    {post.title}
-                  </h2>
-                  <p
-                    className={`line-clamp-2 ${roboto.className} text-[16px] text-[#333]`}
-                  >
-                    {post.description}
-                  </p>
-                  <span
-                    className={`text-[16px] ${firaSans.className} font-[600] text-[#ec500d] mt-2`}
-                  >
-                    Xem ngay <span>&gt;</span>
-                  </span>
-                </div>
-                <div className="w-[40%]">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-[150px] object-contain rounded-lg hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              </a>
-            </div>
-          ))}
-        </div>
+        <ProductCard posts={posts} />
       </div>
     </div>
   );

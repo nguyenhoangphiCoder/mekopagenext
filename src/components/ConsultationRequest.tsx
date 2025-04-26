@@ -3,13 +3,17 @@ import InformationCompany from "@/app/contact/components/InformationCompany";
 import { useSetting } from "@/app/helpers/hooks";
 import { getMessageError } from "@/app/helpers/utils";
 import { FeedbackApi } from "@/app/services/feedback-api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import InforCompany from "./inforCompany";
+import { useRouter } from "next/navigation";
 
 export default function ConsultationRequest() {
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isClient, setIsClient] = useState(false);
+  const [loadingSubmit, setLoading] = useState(false);
+  const router = useRouter();
+
   const {
     settings,
   }: {
@@ -17,17 +21,23 @@ export default function ConsultationRequest() {
     loading: boolean;
     error: { message: string } | null | undefined;
   } = useSetting();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const form = e.target;
 
     const data = {
       type: "Liên hệ",
-      name: form["lastName"].value + " " + form["firstName"].value,
-      phone: form["phone"].value,
+      name:
+        form["lastName"].value.trim() + " " + form["firstName"].value.trim(),
+      phone: form["phone"].value.trim(),
       email: "",
       address: "",
-      content: form["content"].value,
+      content: form["content"].value.trim(),
     };
 
     setLoading(true);
@@ -38,6 +48,10 @@ export default function ConsultationRequest() {
       setLoading(false);
       form.reset();
       toast.success("Yêu cầu đã được ghi nhận");
+
+      if (isClient) {
+        router.push("/thankyou");
+      }
     } catch (err) {
       setLoading(false);
       setError(getMessageError(err));
@@ -46,11 +60,11 @@ export default function ConsultationRequest() {
 
   return (
     <div className="flex justify-center items-center mt-[-150px] h-[660px] gap-[24px] flex-row mx-auto">
-      <div className="bg-[#fafafa] h-[511px] w-[1280px]  flex flex-col rounded-[10px] items-center justify-center">
+      <div className="bg-[#fafafa] h-[511px] w-[1280px] flex flex-col rounded-[10px] items-center justify-center">
         <div className="flex h-[511px] w-[950px] justify-center gap-10 items-center">
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col  justify-center h-[411px] w-[850px]"
+            className="flex flex-col justify-center h-[411px] w-[850px]"
           >
             <h2 className="font-fira-sans text-[35px] text-[#00428c] font-[600]">
               Yêu cầu tư vấn
@@ -69,7 +83,7 @@ export default function ConsultationRequest() {
                   name="firstName"
                   placeholder="Tên"
                   required
-                  className="w-[403px] h-[53px] font-fira-sans rounded-[51px] font-[500]  p-5 bg-white"
+                  className="w-[403px] h-[53px] font-fira-sans rounded-[51px] font-[500] p-5 bg-white"
                 />
               </div>
               <input
@@ -77,22 +91,24 @@ export default function ConsultationRequest() {
                 name="phone"
                 placeholder="Số điện thoại"
                 required
-                className="w-[828px] h-[53px] rounded-[51px] font-[500]  font-fira-sans bg-white pl-5 mt-5"
+                className="w-[828px] h-[53px] rounded-[51px] font-[500] font-fira-sans bg-white pl-5 mt-5"
               />
               <input
                 type="text"
                 name="content"
                 placeholder="Nội dung"
-                className="w-[828px]  h-[113px] font-fira-sans rounded-[20px] font-[500]  bg-white pl-5 mt-5 pb-15"
+                className="w-[828px] h-[113px] font-fira-sans rounded-[20px] font-[500] bg-white pl-5 mt-5 pb-15"
               />
             </div>
-            {error && <p className="text-red-500  font-fira-sans">{error}</p>}
+            {error && (
+              <p className="text-red-500 font-fira-sans mt-2">{error}</p>
+            )}
             <button
+              disabled={loadingSubmit}
               type="submit"
-              disabled={loading}
-              className="w-[133px] h-[40px] font-[600]  text-white font-barlow rounded-[51px] bg-[#ec500d]  text-[16px]"
+              className="w-[133px] h-[40px] font-[600] text-white font-barlow rounded-[51px] bg-[#ec500d] text-[16px] mt-4"
             >
-              {loading ? "Đang gửi..." : "Gửi"}
+              {loadingSubmit ? "Đang gửi..." : "Gửi"}
             </button>
           </form>
         </div>

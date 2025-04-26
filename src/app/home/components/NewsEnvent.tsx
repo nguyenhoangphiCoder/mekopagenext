@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Barlow, Fira_Sans, Inter, Lora, Roboto } from "next/font/google";
 import { usePosts } from "../../helpers/hooks";
 import { format } from "date-fns";
+import { FaChevronRight } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const barlow = Barlow({ subsets: ["latin"], weight: ["400", "600"] });
@@ -29,7 +30,7 @@ export default function NewsEvent() {
           </h1>
         </div>
 
-        {/* Danh sách bài viết - 3 cột */}
+        {/* Danh sách bài viết */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts?.slice(0, 6).map((post, index) => {
             const formattedDate = post.created_at
@@ -39,7 +40,7 @@ export default function NewsEvent() {
             return (
               <div
                 key={index}
-                className="bg-white shadow-sm rounded-[6px] overflow-hidden transition-transform duration-300 hover:scale-105"
+                className="bg-white shadow-sm rounded-[6px] overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col"
               >
                 <Image
                   src={post.image}
@@ -48,24 +49,26 @@ export default function NewsEvent() {
                   height={208}
                   className="w-full h-[208px] object-cover"
                 />
-                <div className="p-5 flex flex-col">
+                <div className="p-5 flex flex-col justify-between h-full flex-1">
                   <p className={`text-sm text-gray-500 ${barlow.className}`}>
                     {formattedDate}
                   </p>
-                  <h3
-                    className={`text-[18px] text-[#191919] font-[600] mt-2 ${barlow.className}`}
-                  >
-                    <a href={post.url || "#"}>{post.title}</a>
-                  </h3>
-                  <div className="w-full h-[3px] bg-gray-300 mt-3 relative">
-                    <div className="w-10 h-[3px] bg-[#ec500d] absolute top-[-0.5px] left-0"></div>
+                  <div className="flex-grow mt-2">
+                    <h3
+                      className={`text-[18px] text-[#191919] font-[600] ${barlow.className} line-clamp-2  h-[3.5rem]`}
+                    >
+                      <a href={post.url || "#"}>{post.title}</a>
+                    </h3>
+                    <div className="w-full h-[3px] bg-gray-300 mt-5 relative">
+                      <div className="w-10 h-[3px] bg-[#ec500d] absolute top-[-0.5px] left-0"></div>
+                    </div>
                   </div>
                   <div className="mt-4">
                     <a
-                      href={post.url || "#"}
+                      href={`/new?slug=${post.id}`}
                       className={`text-[#ec500d] text-[15px] font-[600] ${firaSans.className} flex items-center`}
                     >
-                      Xem Thêm <span className="ml-1">›</span>
+                      Xem Thêm <FaChevronRight className="text-[14px] m-1.5" />
                     </a>
                   </div>
                 </div>

@@ -28,13 +28,13 @@ export default function AllProduct() {
                 href={`/productdetail?slug=${item.id}`}
                 className="block group"
               >
-                <div className="overflow-hidden">
+                <div className="overflow-hidden flex justify-center items-center">
                   <Image
-                    width={400}
-                    height={300}
+                    width={500}
+                    height={500}
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-[200px] h-[200px]  transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-5">

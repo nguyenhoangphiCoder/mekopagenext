@@ -13,10 +13,10 @@ const barlow = Barlow({
 
 export default function Hero() {
   return (
-    <div className="flex flex-col-reverse lg:flex-row relative justify-between items-center lg:h-[660px] mt-20 mx-auto px-4 py-10 gap-10 bg-[#fbfbfb]">
+    <div className="flex flex-col-reverse lg:flex-row lg:w-[1440px] relative justify-between items-center lg:h-[660px] mt-20 mx-auto px-4 py-10 gap-10 bg-[#fbfbfb]">
       <div className="flex justify-center items-center w-full lg:w-1/2 relative">
         {/* Background Image */}
-        <div className="absolute lg:flex justify-center items-center h-[600px] w-[900px]">
+        <div className="absolute lg:flex justify-center items-center h-[600px] hidden lg:block w-[900px]">
           <img src={heroleft.src} alt="/" className="h-[600px] w-[900px]" />
         </div>
         <div className="relative flex gap-5 lg:ml-[100px] flex-col text-center lg:text-left px-4">
@@ -24,16 +24,16 @@ export default function Hero() {
             <h1
               className={`text-[#00428C] ${firaSans.className} font-[600] text-[32px] lg:text-[50px]`}
             >
-              Xí Nghiệp Chế Biến Thực Phẩm Meko
+              Trứng Muối Meko
             </h1>
           </div>
           <h2
             className={`text-[#ec500c] text-[24px] lg:text-[32px] ${firaSans.className} font-[600]`}
           >
-            Meko Food Processing Factory
+            Trứng muối sạch, ngon, chuẩn vị
           </h2>
           <p
-            className={`text-[16px] lg:text-[18px] w-full max-w-[420px] text-[#464646] ${barlow.className} font-[400] leading-relaxed mx-auto lg:mx-0`}
+            className={`text-[16px] mt-[-10px] lg:text-[18px] w-full max-w-[420px] text-[#464646] ${barlow.className} font-[400] leading-relaxed mx-auto lg:mx-0`}
           >
             Sự kết hợp hoàn hảo giữa tinh túy của mỗi quả trứng và vị mặn mà của
             muối, được ấp ủ trong từng sản phẩm. Đó là cách chúng tôi mang lại
